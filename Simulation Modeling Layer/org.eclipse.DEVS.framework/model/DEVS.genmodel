@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.DEVS.framework/src" modelPluginID="org.eclipse.DEVS.framework"
+    modelName="DEVS" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>DEVS.ecore</foreignModel>
+  <genPackages prefix="DEVS" disposableProviderFactory="true" ecorePackage="DEVS.ecore#/">
+    <genClasses image="false" ecoreClass="DEVS.ecore#//DEVS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DEVS.ecore#//DEVS/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//DEVS/container"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DEVS.ecore#//DEVS/iports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DEVS.ecore#//DEVS/oports"/>
+    </genClasses>
+    <genClasses ecoreClass="DEVS.ecore#//AtomicDEVS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DEVS.ecore#//AtomicDEVS/deltaInt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DEVS.ecore#//AtomicDEVS/deltaConf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DEVS.ecore#//AtomicDEVS/deltaExt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DEVS.ecore#//AtomicDEVS/phases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DEVS.ecore#//AtomicDEVS/stateVars"/>
+    </genClasses>
+    <genClasses ecoreClass="DEVS.ecore#//CoupledDEVS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DEVS.ecore#//CoupledDEVS/subModels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DEVS.ecore#//CoupledDEVS/eics"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DEVS.ecore#//CoupledDEVS/ics"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DEVS.ecore#//CoupledDEVS/eocs"/>
+    </genClasses>
+    <genClasses ecoreClass="DEVS.ecore#//IPort"/>
+    <genClasses ecoreClass="DEVS.ecore#//OPort"/>
+    <genClasses image="false" ecoreClass="DEVS.ecore#//Port">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DEVS.ecore#//Port/portId"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//Port/owner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//Port/portType"/>
+    </genClasses>
+    <genClasses ecoreClass="DEVS.ecore#//EIC">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//EIC/influencer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//EIC/influencee"/>
+    </genClasses>
+    <genClasses ecoreClass="DEVS.ecore#//IC">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//IC/influencer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//IC/influencee"/>
+    </genClasses>
+    <genClasses ecoreClass="DEVS.ecore#//EOC">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//EOC/influencer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//EOC/influencee"/>
+    </genClasses>
+    <genClasses ecoreClass="DEVS.ecore#//IntTransition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//IntTransition/outputs"/>
+    </genClasses>
+    <genClasses ecoreClass="DEVS.ecore#//ConfTrans">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//ConfTrans/outputs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//ConfTrans/inputs"/>
+    </genClasses>
+    <genClasses ecoreClass="DEVS.ecore#//ExtTrans">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//ExtTrans/inputs"/>
+    </genClasses>
+    <genClasses ecoreClass="DEVS.ecore#//Event">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//Event/targetPort"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//Event/value"/>
+    </genClasses>
+    <genClasses ecoreClass="DEVS.ecore#//Phase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DEVS.ecore#//Phase/phaseID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DEVS.ecore#//Phase/timeAdvance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//Phase/predicates"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DEVS.ecore#//PhaseTransition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//PhaseTransition/sourcePhase"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//PhaseTransition/targetPhase"/>
+    </genClasses>
+    <genClasses ecoreClass="DEVS.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DEVS.ecore#//Variable/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference DEVS.ecore#//Variable/domain"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
