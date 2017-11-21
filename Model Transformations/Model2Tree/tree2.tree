@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<tree:Tree xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:tree="http://devs.org/tree" ID="Simulation_Tree">
+  <Root ID="Main_Root" child="//@Coordinator.0"/>
+  <Coordinator ID="Nuclear Medicine" modelName="Nuclear Medicine" children="//@Coordinator.1 //@Coordinator.2"/>
+  <Coordinator ID="EF" modelName="EF" children="//@Simulator.0 //@Simulator.1 //@Simulator.2 //@Simulator.3 //@Simulator.4"/>
+  <Coordinator ID="NMD" modelName="NMD" children="//@Simulator.5 //@Simulator.6 //@Simulator.7 //@Coordinator.3"/>
+  <Coordinator ID="STATION" modelName="STATION" children="//@Simulator.8 //@Simulator.9 //@Simulator.10 //@Simulator.11 //@Simulator.12 //@Simulator.13 //@Simulator.14 //@Simulator.15 //@Simulator.16"/>
+  <Simulator ID="EF_CGENR" modelName="EF_CGENR"/>
+  <Simulator ID="EF_Scheduler" modelName="EF_Scheduler"/>
+  <Simulator ID="EF_Transducer" modelName="EF_Transducer"/>
+  <Simulator ID="EF_RPENGR" modelName="EF_RPENGR"/>
+  <Simulator ID="EF_PGENR" modelName="EF_PGENR"/>
+  <Simulator ID="HR_Technologist" modelName="HR_Technologist"/>
+  <Simulator ID="HR_Nurse" modelName="HR_Nurse"/>
+  <Simulator ID="HR_Manager" modelName="HR_Manager"/>
+  <Simulator ID="Room_Waiting" modelName="Room_Waiting"/>
+  <Simulator ID="Room_AxisCamera" modelName="Room_AxisCamera"/>
+  <Simulator ID="Room_TRTCamera" modelName="Room_TRTCamera"/>
+  <Simulator ID="Room_Treadmill" modelName="Room_Treadmill"/>
+  <Simulator ID="Room_P2000" modelName="Room_P2000"/>
+  <Simulator ID="Equip_AxisCamera" modelName="Equip_AxisCamera"/>
+  <Simulator ID="Equip_Treadmill" modelName="Equip_Treadmill"/>
+  <Simulator ID="Equip_P2000" modelName="Equip_P2000"/>
+  <Simulator ID="Equip_TRTCamera" modelName="Equip_TRTCamera"/>
+</tree:Tree>

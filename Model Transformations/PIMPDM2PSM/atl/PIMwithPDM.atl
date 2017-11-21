@@ -1,0 +1,153 @@
+module merge;
+
+create OUT : Ecore from LEFT : Ecore, RIGHT : Ecore;
+
+helper def : eClassifierByName : Map(String, Ecore!EClassifier) =
+  Ecore!EClassifier.allInstances()->iterate(e; acc : Map(String, Ecore!EClassifier) = Map{} |
+    if (acc.get(e.name).oclIsUndefined()) then
+      acc.including(e.name, e)
+    else
+      acc
+    endif
+  );
+
+rule EPackage {
+  from
+    s : Ecore!EPackage in LEFT
+  to
+    t : Ecore!EPackage (
+      name <- 'PDMs',
+      nsURI <- s.nsURI,
+      nsPrefix <- s.nsPrefix,
+      eAnnotations <- s.eAnnotations,
+      eSubpackages <- s.eSubpackages, 
+      eClassifiers <- Ecore!EClassifier.allInstances()->select(c | thisModule.eClassifierByName.get(c.name) = c)
+    )
+}
+
+rule EClass {
+  from
+    s : Ecore!EClass (thisModule.eClassifierByName.get(s.name) = s)
+  to
+    t : Ecore!EClass (
+     	name <- s.name,
+        instanceClassName <- s.instanceClassName,
+        instanceTypeName <- s.instanceTypeName,
+        "abstract" <- s."abstract",
+		
+        interface <- s.interface,
+        eAnnotations <- s.eAnnotations,
+        eTypeParameters <- s.eTypeParameters,
+        eSuperTypes <- s.eSuperTypes,
+       -- eOperations <- s.eOperations->union(Ecore!EOperation.allInstancesFrom('RIGHT')->select(e | e.refImmediateComposite().name = s.name )),
+	    eOperations <- s.eOperations,
+        eStructuralFeatures <- s.eStructuralFeatures->union(Ecore!EStructuralFeature.allInstancesFrom('RIGHT')->select(e | e.refImmediateComposite().name = s.name ))
+    )
+}
+
+rule EAttribute {
+    from s : Ecore!EAttribute 
+    to t : Ecore!EAttribute (
+        name <- s.name,
+        ordered <- s.ordered,
+        "unique" <- s."unique",
+        lowerBound <- s.lowerBound,
+        upperBound <- s.upperBound,
+        changeable <- s.changeable,
+        volatile <- s.volatile,
+        transient <- s.transient,
+        defaultValueLiteral <- s.defaultValueLiteral,
+        unsettable <- s.unsettable,
+        "derived" <- s."derived",
+        iD <- s.iD,
+        eAnnotations <- s.eAnnotations,
+        eType <- s.eType)
+}
+
+rule EDataType {
+    from s : Ecore!EDataType in LEFT (s.oclIsTypeOf(Ecore!EDataType))
+    to t : Ecore!EDataType (
+        name <- s.name,
+        instanceClassName <- s.instanceClassName,
+        instanceTypeName <- s.instanceTypeName,
+        serializable <- s.serializable,
+        eAnnotations <- s.eAnnotations,
+        eTypeParameters <- s.eTypeParameters)
+}
+
+
+rule EOperation {
+    from s : Ecore!EOperation 
+    to t : Ecore!EOperation (
+        name <- s.name,
+        ordered <- s.ordered,
+        "unique" <- s."unique",
+        lowerBound <- s.lowerBound,
+        upperBound <- s.upperBound,
+        eAnnotations <- s.eAnnotations,
+        eType <- s.eType,
+        eTypeParameters <- s.eTypeParameters,
+        eParameters <- s.eParameters,
+        eExceptions <- s.eExceptions)
+}
+
+rule EParameter {
+    from s : Ecore!EParameter in LEFT
+    to t : Ecore!EParameter (
+        name <- s.name,
+        ordered <- s.ordered,
+        "unique" <- s."unique",
+        lowerBound <- s.lowerBound,
+        upperBound <- s.upperBound,
+        eAnnotations <- s.eAnnotations,
+        eType <- s.eType)
+}
+
+rule EReference {
+    from s : Ecore!EReference 
+    to t : Ecore!EReference (
+        name <- s.name,
+        ordered <- s.ordered,
+        "unique" <- s."unique",
+        lowerBound <- s.lowerBound,
+        upperBound <- s.upperBound,
+        changeable <- s.changeable,
+        volatile <- s.volatile,
+        transient <- s.transient,
+        defaultValueLiteral <- s.defaultValueLiteral,
+        unsettable <- s.unsettable,
+        "derived" <- s."derived",
+        containment <- s.containment,
+        resolveProxies <- s.resolveProxies,
+        eAnnotations <- s.eAnnotations,
+        eType <- s.eType,
+        eOpposite <- s.eOpposite,
+        eKeys <- s.eKeys)
+
+}
+
+rule EAnnotation {
+    from s : Ecore!EAnnotation in LEFT
+    to t : Ecore!EAnnotation (
+        source <- s.source,
+        eAnnotations <- s.eAnnotations,
+        details <- s.details)
+}
+
+rule EStringToStringMapEntry {
+    from s : Ecore!EStringToStringMapEntry in LEFT
+    to t : Ecore!EStringToStringMapEntry (
+        key <- s.key,
+        value <- s.value)
+}
+
+rule ETypeParameter {
+    from s : Ecore!ETypeParameter in LEFT
+    to t : Ecore!ETypeParameter (
+        name <- s.name,
+        eAnnotations <- s.eAnnotations)
+}
+
+
+
+-- TODO other metaclasses

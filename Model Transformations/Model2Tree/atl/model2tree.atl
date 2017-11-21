@@ -1,0 +1,131 @@
+-- @path DEVS=/Model2Tree/model/DEVS.ecore
+-- @path SG=/Model2Tree/model/DEVS.ecore
+
+module model2tree;
+create OUT : SG from IN : DEVS;
+
+helper context DEVS!DEVS def: firstCoupled(): Boolean =
+	self.refImmediateComposite().oclIsUndefined() ;
+
+helper context DEVS!DEVS def: firstCoupledSet(): Set(DEVS!DEVS) =
+	if(self.refImmediateComposite().oclIsUndefined() ) then
+		thisModule.allC ->include(self)
+	else
+		thisModule.allC
+	endif;
+
+helper context DEVS!CoupledDEVS def: allCoupled(): Set(DEVS!CoupledDEVS) =
+	DEVS!CoupledDEVS.allInstances()->asSet();
+
+rule DEVS2Tree {
+	from
+		s : DEVS!DEVS
+	to 
+		w : SG!Tree (
+		ID<-'Simulation Tree'	
+--		Root <- root,
+--		Coordinator<-coordinator
+--		Simulator<-simulator
+		)
+--		
+--		root: SG!Root(
+--			ID<-'Main_Root'
+--			--child<-DEVS!CoupledDEVS.allInstances()->select(s | s.firstCoupled()).first().name
+--		),
+--		
+--		coordinator : SG!Coordinator (
+--    	ID<- s.name
+--		children <-s.subModels
+--		)
+--		
+--		simulator : SG!Simulator (
+--    	ID<- s.name
+--		)
+--	
+}
+
+--rule Root {
+--  from
+--    s : DEVS!CoupledDEVS (s.firstCoupled())
+--  to
+--    t : SG!Root (
+--    ID<-'Main_Root',
+--	child<-s.name
+--  )
+-- }
+
+--rule Root {
+--  from
+--    s : DEVS!DEVS (s.firstCoupled())
+--  to
+--	p:SG!Root(
+--		ID<-'Main_Root',
+--		child<-s.name
+--	)
+--	
+--}
+
+
+--rule Coupled2Coordinator {
+--  from
+--    devs : DEVS!DEVS (devs.firstCoupled())
+--  to
+----    p : SG!Root (
+----    ID<-'Main_Root',
+----	child<-s.name->select(s | s.refImmediateComposite().oclIsUndefined())
+----  ),
+--
+--	p:SG!Root (
+--		ID<-'Main_Root',
+--		child<-DEVS!CoupledDEVS.allInstances()->select(devs | devs.firstCoupled() and devs.oclIsTypeOf(DEVS!DEVS)).first().name
+--	)
+	
+	
+  
+--    t : SG!Coordinator (
+--    	ID<- devs.name,
+--		children <-devs.subModels    
+--    )
+--}
+
+--rule Atomic2Simulator {
+--  from
+--    s : DEVS!AtomicDEVS 
+--  to
+--    t : SG!Simulator (
+--    	ID<- s.name->select(s | s.oclIsTypeOf(DEVS!AtomicDEVS))
+--		
+--    )
+--}
+
+
+--EXCERPTS FROM model2Tree2.atl
+
+helper context DEVS!CoupledDEVS def: getAllChildren(): OrderedSet(DEVS!DEVS) =
+	self.subModels -> iterate(child; elements: OrderedSet(DEVS!DEVS) =
+			OrderedSet{} | if child.oclIsTypeOf(DEVS!DEVS) then
+			elements.append(child) -- LEAF
+			
+		else
+			elements -- NODE : recursive call
+			
+		endif);
+
+helper context DEVS!CoupledDEVS def: inCoupled(): Boolean =
+	DEVS!CoupledDEVS.allInstances() -> asSet() -> includes(self);
+
+helper context DEVS!AtomicDEVS def: inAtomic(): Boolean =
+	DEVS!AtomicDEVS.allInstances() -> asSet() -> includes(self);
+
+helper context DEVS!DEVS def: allCoupledSub(): Set(DEVS!DEVS) =
+	self.subModels -> select(e|e.oclIsTypeOf(DEVS!DEVS)) -> asSet();
+
+
+unique lazy rule sub {
+	from
+		s: DEVS!DEVS 
+	to
+		w: SG!Coordinator (
+			ID <- s.name
+		)
+}

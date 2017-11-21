@@ -1,0 +1,56 @@
+-- @path MM=/Model2Tree/model/DEVS.ecore
+-- @path MM1=/Model2Tree/model/SG.ecore
+
+
+module model2Tree2;
+create OUT: SG from IN: DEVS;
+
+helper context DEVS!DEVS def: hasNoParent(): Boolean =
+	self.refImmediateComposite().oclIsUndefined();
+
+rule DEVS2Tree {
+	from
+		s: DEVS!DEVS (s.hasNoParent())
+	to
+		w: SG!Tree (
+			ID <- 'Simulation_Tree',
+			--ID <- s.name,
+			Root <- thisModule.DEVS2Root(),
+			Coordinator <- DEVS!CoupledDEVS.allInstances() -> collect(e | thisModule.DEVS2Coordinator(e)),
+			Simulator <- DEVS!AtomicDEVS.allInstances() -> collect(e | thisModule.DEVS2Simulator(e))
+		)
+}
+
+unique lazy rule DEVS2Root {
+ 	from
+		s: DEVS!CoupledDEVS 
+ 	to
+		rr: SG!Root (
+			ID <- 'Main_Root',
+			child <- thisModule.DEVS2Coordinator(DEVS!CoupledDEVS.allInstances() ->	flatten() -> first())
+		)
+ }
+
+unique lazy rule DEVS2Coordinator {
+	from
+		s: DEVS!DEVS 
+		(s.oclIsTypeOf(DEVS!CoupledDEVS))
+	to
+		w: SG!PDEVSCoordinator (
+			ID <- s.name, 
+			modelName <-s.name,
+			children <- s.subModels->select(p | p.oclIsTypeOf(DEVS!AtomicDEVS))->collect(e | thisModule.DEVS2Simulator(e)) ->union(s.subModels->select(p | p.oclIsTypeOf(DEVS!CoupledDEVS))->collect(e | thisModule.DEVS2Coordinator(e)))	
+		)
+}
+
+unique lazy rule DEVS2Simulator {
+	from
+		s: DEVS!DEVS (
+			s.oclIsTypeOf(DEVS!AtomicDEVS)
+		)
+	to
+		w: SG!PDEVSSimulator (
+			ID <- s.name,
+			modelName <-s.name
+		)
+}
