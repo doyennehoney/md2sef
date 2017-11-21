@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="Tree" version="10.1.3.201511131800">
+  <ownedViewpoints name="tree" modelFileExtension="tree">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Tree diagram" domainClass="tree.Tree" enablePopupBars="true">
+      <metamodel href="http://psm.org/Tree#/"/>
+      <layout xsi:type="description_1:CompositeLayout"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="coordinator" semanticCandidatesExpression="feature:Coordinator" domainClass="tree.Coordinator">
+          <style xsi:type="style:BundledImageDescription" labelExpression="feature:ID" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="simulator" semanticCandidatesExpression="feature:Simulator" domainClass="tree.Simulator">
+          <style xsi:type="style:BundledImageDescription" labelExpression="feature:ID" resizeKind="NSEW" shape="ring">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="root" semanticCandidatesExpression="feature:Root" domainClass="tree.Root">
+          <style xsi:type="style:BundledImageDescription" labelExpression="feature:ID" resizeKind="NSEW" shape="ring">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="coordSim" sourceMapping="//@ownedViewpoints[name='tree']/@ownedRepresentations[name='Tree%20diagram']/@defaultLayer/@nodeMappings[name='coordinator']" targetMapping="//@ownedViewpoints[name='tree']/@ownedRepresentations[name='Tree%20diagram']/@defaultLayer/@nodeMappings[name='simulator']" targetFinderExpression="feature:children">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="rootCoord" sourceMapping="//@ownedViewpoints[name='tree']/@ownedRepresentations[name='Tree%20diagram']/@defaultLayer/@nodeMappings[name='root']" targetMapping="//@ownedViewpoints[name='tree']/@ownedRepresentations[name='Tree%20diagram']/@defaultLayer/@nodeMappings[name='coordinator']" targetFinderExpression="feature:child">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="rootSim" sourceMapping="//@ownedViewpoints[name='tree']/@ownedRepresentations[name='Tree%20diagram']/@defaultLayer/@nodeMappings[name='root']" targetMapping="//@ownedViewpoints[name='tree']/@ownedRepresentations[name='Tree%20diagram']/@defaultLayer/@nodeMappings[name='simulator']" targetFinderExpression="feature:child">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="coordCoord" sourceMapping="//@ownedViewpoints[name='tree']/@ownedRepresentations[name='Tree%20diagram']/@defaultLayer/@nodeMappings[name='coordinator']" targetMapping="//@ownedViewpoints[name='tree']/@ownedRepresentations[name='Tree%20diagram']/@defaultLayer/@nodeMappings[name='coordinator']" targetFinderExpression="feature:children">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

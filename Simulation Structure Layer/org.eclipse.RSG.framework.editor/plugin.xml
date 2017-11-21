@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated RSG -->
+      <category
+            id="org.eclipse.rsg.framework.editor.wizards.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="rsgf.tree.presentation.TreeModelWizardID"
+            name="%_UI_TreeModelWizard_label"
+            class="rsgf.tree.presentation.TreeModelWizard"
+            category="org.eclipse.rsg.framework.editor.wizards.category.ID"
+            icon="icons/full/obj16/TreeModelFile.gif">
+         <description>%_UI_TreeModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated RSG -->
+      <editor
+            id="rsgf.tree.presentation.TreeEditorID"
+            name="%_UI_TreeEditor_label"
+            icon="icons/full/obj16/TreeModelFile.gif"
+            extensions="tree"
+            class="rsgf.tree.presentation.TreeEditor"
+            contributorClass="rsgf.tree.presentation.TreeActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated RSG -->
+      <category
+            id="org.eclipse.rsg.framework.editor.wizards.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="rsgf.skeleton.presentation.SkeletonModelWizardID"
+            name="%_UI_SkeletonModelWizard_label"
+            class="rsgf.skeleton.presentation.SkeletonModelWizard"
+            category="org.eclipse.rsg.framework.editor.wizards.category.ID"
+            icon="icons/full/obj16/SkeletonModelFile.gif">
+         <description>%_UI_SkeletonModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated RSG -->
+      <editor
+            id="rsgf.skeleton.presentation.SkeletonEditorID"
+            name="%_UI_SkeletonEditor_label"
+            icon="icons/full/obj16/SkeletonModelFile.gif"
+            extensions="skeleton"
+            class="rsgf.skeleton.presentation.SkeletonEditor"
+            contributorClass="rsgf.skeleton.presentation.SkeletonActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated RSG -->
+      <category
+            id="org.eclipse.rsg.framework.editor.wizards.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="rsgf.bundle.presentation.BundleModelWizardID"
+            name="%_UI_BundleModelWizard_label"
+            class="rsgf.bundle.presentation.BundleModelWizard"
+            category="org.eclipse.rsg.framework.editor.wizards.category.ID"
+            icon="icons/full/obj16/BundleModelFile.gif">
+         <description>%_UI_BundleModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated RSG -->
+      <editor
+            id="rsgf.bundle.presentation.BundleEditorID"
+            name="%_UI_BundleEditor_label"
+            icon="icons/full/obj16/BundleModelFile.gif"
+            extensions="bundle"
+            class="rsgf.bundle.presentation.BundleEditor"
+            contributorClass="rsgf.bundle.presentation.BundleActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated RSG -->
+      <category
+            id="org.eclipse.rsg.framework.editor.wizards.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="rsgf.vm.presentation.VmModelWizardID"
+            name="%_UI_VmModelWizard_label"
+            class="rsgf.vm.presentation.VmModelWizard"
+            category="org.eclipse.rsg.framework.editor.wizards.category.ID"
+            icon="icons/full/obj16/VmModelFile.gif">
+         <description>%_UI_VmModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated RSG -->
+      <editor
+            id="rsgf.vm.presentation.VmEditorID"
+            name="%_UI_VmEditor_label"
+            icon="icons/full/obj16/VmModelFile.gif"
+            extensions="vm"
+            class="rsgf.vm.presentation.VmEditor"
+            contributorClass="rsgf.vm.presentation.VmActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated RSG -->
+      <category
+            id="org.eclipse.rsg.framework.editor.wizards.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="rsgf.mw.presentation.MwModelWizardID"
+            name="%_UI_MwModelWizard_label"
+            class="rsgf.mw.presentation.MwModelWizard"
+            category="org.eclipse.rsg.framework.editor.wizards.category.ID"
+            icon="icons/full/obj16/MwModelFile.gif">
+         <description>%_UI_MwModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated RSG -->
+      <editor
+            id="rsgf.mw.presentation.MwEditorID"
+            name="%_UI_MwEditor_label"
+            icon="icons/full/obj16/MwModelFile.gif"
+            extensions="mw"
+            class="rsgf.mw.presentation.MwEditor"
+            contributorClass="rsgf.mw.presentation.MwActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

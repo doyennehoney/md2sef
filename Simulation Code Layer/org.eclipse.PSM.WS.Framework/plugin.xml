@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated psm -->
+      <package
+            uri="http://psm.org/middleware"
+            class="ws.middleware.MiddlewarePackage"
+            genModel="model/psm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated psm -->
+      <package
+            uri="http://psm.org/Tree"
+            class="ws.tree.TreePackage"
+            genModel="model/psm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated psm -->
+      <package
+            uri="http://psm.org/skeleton"
+            class="ws.skeleton.SkeletonPackage"
+            genModel="model/psm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated psm -->
+      <package
+            uri="http://psm.org/bundle"
+            class="ws.bundle.BundlePackage"
+            genModel="model/psm.genmodel"/>
+   </extension>
+</plugin>

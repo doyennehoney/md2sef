@@ -1,0 +1,227 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module psm.
+ */]
+[module psm('http://psm.org/middleware', 'http://psm.org/bundle', 'http://psm.org/skeleton', 'http://psm.org/Tree')]
+
+
+[**
+ * The documentation of the template generatePSM.
+ * @param Middleware
+ */]
+[template public generatePSM(mw : Middleware)]
+[comment @main/]
+[file (mw.eClass().name.concat('.java'), false, 'UTF-8')]
+import java.util.List;
+
+	public class [mw.eClass().name/]{
+
+		VM vm;
+		List<Process> proc;
+
+		public [mw.eClass().name/] () {
+			vm = new VM();
+			proc = new ArrayList<Processor>();
+		}
+
+		public void addProcess(Process process) { 
+			proc.add(process);
+		}
+
+		public void bind() { }
+		public void establish() { }
+		public void send() { }
+			
+	
+	}
+[/file]	
+	[mw.uses.generateVM()/]
+	[mw.eGet('stubs').generateStubs()/]
+	[mw.process.generateProcess()/]
+
+[/template]
+
+
+[template public generateStubs(s : Stub)]
+[file (s.eClass().name.concat('.java'), false, 'UTF-8')]
+
+	public abstract class [s.eClass().name/]{
+
+		public void receive(){
+
+		}
+	}
+[/file]
+	[s.impl.generateImpl()/]
+[/template]
+
+[template public generateImpl(impl : ServiceImpl)]
+[file (impl.eClass().name.concat('.java'), false, 'UTF-8')]
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+	@WebService(name = "", endpointInterface="", serviceName="",
+			targetNamespace="")
+	public class [impl.eClass().name/] implements [impl.eClass().eSuperTypes.name/]{
+		public [impl.eClass().name/] () {		}
+
+		@WebMethod
+		public void receive(){
+
+		}
+
+	}
+[/file]
+[/template]
+
+[template public generateVM(vm : VM)]
+[file (vm.eClass().name.concat('.java'), false, 'UTF-8')]
+import java.util.List;
+
+	public class [vm.eClass().name/]{
+
+		List<Processor> proc;
+		String name;	
+		String protocol;
+
+		public [vm.eClass().name/] () {
+			name = "[vm.ID/]";
+			protocol = "[vm.protocol/]";
+			proc = new ArrayList<Processor>();		
+		}
+
+		public void addProcessor(Processor processor) { 
+			proc.add(processor);
+		}		
+	}
+[/file]
+	[vm.processors.generateProcessor()/]
+[/template]
+
+[template public generateProcessor(proc : Processor)]
+
+[file (proc.eClass().name.concat('_'+proc.ID+'.java'), false, 'UTF-8')]
+	public class [proc.eClass().name/]{
+
+		String id;	
+		String ip;
+
+		public [proc.eClass().name/] () {
+			id = [proc.ID/];
+			ip = [proc.IP/]		
+		}
+
+		public getID() {
+				return this.id;
+		}
+
+		public void setID(String id) {
+			this.id =id;
+		}
+
+		public getIP() {
+				return this.ip;
+		}
+
+		public void setIP(String ip) {
+			this.id =ip;
+		}
+		
+	}
+[/file]
+[/template]
+
+[template public generateProcess(aProcess : Process)]
+	[file (aProcess.eClass().name.toUpperFirst().concat('_'+aProcess.ID+'.java'), false, 'UTF-8')]
+
+	public class [aProcess.eClass().name.toUpperFirst()/]_[aProcess.ID/]{
+
+		String id;	
+		public [aProcess.ID.toUpperFirst()/] () {
+			id = [aProcess.ID/];
+		}	
+
+		public void receive(){ }
+
+	}
+	[/file]
+	[aProcess.nodes.generateNodes()/]
+[/template]
+
+[template public generateNodes(aNode : Node){count : Integer = 0;}]
+	
+	[if (aNode.eClass().name = 'Root')]
+	[file (aNode.eClass().name.toUpperFirst().concat('_'+aNode.ID+'.java'), false, 'UTF-8')]
+	
+	public class [aNode.eClass().name.toUpperFirst()/]_[aNode.ID/]{
+
+		BasicNode child;
+		public [aNode.eClass().name/](BasicNode s)
+		{
+			this.child = s;
+		}
+	}
+	[/file]
+
+	[elseif (aNode.oclIsKindOf(Coordinator))]
+	[file (aNode.eClass().name.toUpperFirst().concat('_'+aNode.ID+'.java'), false, 'UTF-8')]
+import java.util.List;
+
+	public class [aNode.eClass().name.toUpperFirst()/]_[aNode.ID/]{
+	
+		List<BasicNode> children;
+		CoupledModel m;
+
+		public [aNode.eClass().name/](CoupledModel m)
+		{
+			this.model = m ;
+			this.children = new ArrayList<BasicNode>();
+		}
+		
+		public void addChild(BasicNode child) { 
+			children.add(child);
+		}
+
+		public void receiveIMsg() {
+		}
+
+		public void receiveStarMsg() {
+		}
+
+		public void receiveXMsg() {
+		}
+
+		public void receiveYMsg() {
+		}	
+	
+	}
+	[/file]
+
+	[else]
+	[file (aNode.eClass().name.toUpperFirst().concat('_'+aNode.ID+'.java'), false, 'UTF-8')]
+	
+	public class [aNode.eClass().name.toUpperFirst()/]_[aNode.ID/]{
+
+		AtomicModel model;
+
+		public [aNode.eClass().name/](AtomicModel m)
+		{
+			this.model = m ;
+		}
+
+		public void receiveIMsg() {
+		}
+
+		public void receiveStarMsg() {
+		}
+
+		public void receiveXMsg() {
+		}
+
+	}
+	[/file]
+	[/if]			
+[/template]
+
+
+

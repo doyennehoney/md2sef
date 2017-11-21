@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.PSM.WS.Framework/src" modelPluginID="org.eclipse.PSM.WS.Framework"
+    modelName="Psm" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>psm.ecore</foreignModel>
+  <genPackages prefix="Psm" disposableProviderFactory="true" ecorePackage="psm.ecore#/">
+    <nestedGenPackages prefix="Middleware" basePackage="ws" disposableProviderFactory="true"
+        ecorePackage="psm.ecore#//middleware">
+      <genClasses image="false" ecoreClass="psm.ecore#//middleware/Middleware">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference psm.ecore#//middleware/Middleware/uses"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference psm.ecore#//middleware/Middleware/process"/>
+        <genOperations ecoreOperation="psm.ecore#//middleware/Middleware/bind"/>
+        <genOperations ecoreOperation="psm.ecore#//middleware/Middleware/establish"/>
+        <genOperations ecoreOperation="psm.ecore#//middleware/Middleware/send"/>
+      </genClasses>
+      <genClasses ecoreClass="psm.ecore#//middleware/WebService">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference psm.ecore#//middleware/WebService/stubs"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference psm.ecore#//middleware/WebService/registry"/>
+      </genClasses>
+      <genClasses ecoreClass="psm.ecore#//middleware/VM">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute psm.ecore#//middleware/VM/ID"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute psm.ecore#//middleware/VM/protocol"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference psm.ecore#//middleware/VM/processors"/>
+      </genClasses>
+      <genClasses ecoreClass="psm.ecore#//middleware/Processor">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute psm.ecore#//middleware/Processor/ID"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute psm.ecore#//middleware/Processor/IP"/>
+        <genOperations ecoreOperation="psm.ecore#//middleware/Processor/receive"/>
+      </genClasses>
+      <genClasses ecoreClass="psm.ecore#//middleware/ServiceImpl">
+        <genOperations ecoreOperation="psm.ecore#//middleware/ServiceImpl/receive"/>
+      </genClasses>
+      <genClasses ecoreClass="psm.ecore#//middleware/Stub">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference psm.ecore#//middleware/Stub/impl"/>
+        <genOperations ecoreOperation="psm.ecore#//middleware/Stub/receive"/>
+      </genClasses>
+      <genClasses ecoreClass="psm.ecore#//middleware/Repository">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference psm.ecore#//middleware/Repository/services"/>
+        <genOperations ecoreOperation="psm.ecore#//middleware/Repository/lookup"/>
+        <genOperations ecoreOperation="psm.ecore#//middleware/Repository/rebind"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="psm.ecore#//middleware/ServiceDescription"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Tree" basePackage="ws" disposableProviderFactory="true"
+        ecorePackage="psm.ecore#//tree">
+      <genClasses ecoreClass="psm.ecore#//tree/Tree">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute psm.ecore#//tree/Tree/ID"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference psm.ecore#//tree/Tree/Root"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference psm.ecore#//tree/Tree/Coordinator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference psm.ecore#//tree/Tree/Simulator"/>
+      </genClasses>
+      <genClasses ecoreClass="psm.ecore#//tree/Root">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference psm.ecore#//tree/Root/child"/>
+      </genClasses>
+      <genClasses ecoreClass="psm.ecore#//tree/Coordinator">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference psm.ecore#//tree/Coordinator/children"/>
+      </genClasses>
+      <genClasses ecoreClass="psm.ecore#//tree/CDEVSCoordinator"/>
+      <genClasses ecoreClass="psm.ecore#//tree/PDEVSCoordinator"/>
+      <genClasses ecoreClass="psm.ecore#//tree/FlatCoordinator"/>
+      <genClasses ecoreClass="psm.ecore#//tree/NodeCoordinator"/>
+      <genClasses ecoreClass="psm.ecore#//tree/P_Coordinator"/>
+      <genClasses image="false" ecoreClass="psm.ecore#//tree/Simulator"/>
+      <genClasses ecoreClass="psm.ecore#//tree/CDEVSSimulator"/>
+      <genClasses ecoreClass="psm.ecore#//tree/PDEVSSimulator"/>
+      <genClasses ecoreClass="psm.ecore#//tree/P_Simulator"/>
+      <genClasses image="false" ecoreClass="psm.ecore#//tree/BasicNode">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute psm.ecore#//tree/BasicNode/modelName"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="psm.ecore#//tree/Node">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute psm.ecore#//tree/Node/ID"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Skeleton" basePackage="ws" disposableProviderFactory="true"
+        ecorePackage="psm.ecore#//skeleton">
+      <genClasses ecoreClass="psm.ecore#//skeleton/Skeleton">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute psm.ecore#//skeleton/Skeleton/ID"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference psm.ecore#//skeleton/Skeleton/tree"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference psm.ecore#//skeleton/Skeleton/rootskel"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Bundle" basePackage="ws" disposableProviderFactory="true"
+        ecorePackage="psm.ecore#//bundle">
+      <genClasses ecoreClass="psm.ecore#//bundle/Bundle">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute psm.ecore#//bundle/Bundle/ID"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference psm.ecore#//bundle/Bundle/skeleton"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference psm.ecore#//bundle/Bundle/Process"/>
+      </genClasses>
+      <genClasses ecoreClass="psm.ecore#//bundle/Process">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute psm.ecore#//bundle/Process/ID"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference psm.ecore#//bundle/Process/nodes"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference psm.ecore#//bundle/Process/middleware"/>
+        <genOperations ecoreOperation="psm.ecore#//bundle/Process/receive"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

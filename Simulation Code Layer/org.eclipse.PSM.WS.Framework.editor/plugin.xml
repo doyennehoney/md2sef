@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated psm -->
+      <category
+            id="org.eclipse.psm.framework.editor.wizards.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ws.middleware.presentation.MiddlewareModelWizardID"
+            name="%_UI_MiddlewareModelWizard_label"
+            class="ws.middleware.presentation.MiddlewareModelWizard"
+            category="org.eclipse.psm.framework.editor.wizards.category.ID"
+            icon="icons/full/obj16/MiddlewareModelFile.gif">
+         <description>%_UI_MiddlewareModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated psm -->
+      <editor
+            id="ws.middleware.presentation.MiddlewareEditorID"
+            name="%_UI_MiddlewareEditor_label"
+            icon="icons/full/obj16/MiddlewareModelFile.gif"
+            extensions="middleware"
+            class="ws.middleware.presentation.MiddlewareEditor"
+            contributorClass="ws.middleware.presentation.MiddlewareActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated psm -->
+      <category
+            id="org.eclipse.psm.framework.editor.wizards.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ws.tree.presentation.TreeModelWizardID"
+            name="%_UI_TreeModelWizard_label"
+            class="ws.tree.presentation.TreeModelWizard"
+            category="org.eclipse.psm.framework.editor.wizards.category.ID"
+            icon="icons/full/obj16/TreeModelFile.gif">
+         <description>%_UI_TreeModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated psm -->
+      <editor
+            id="ws.tree.presentation.TreeEditorID"
+            name="%_UI_TreeEditor_label"
+            icon="icons/full/obj16/TreeModelFile.gif"
+            extensions="tree"
+            class="ws.tree.presentation.TreeEditor"
+            contributorClass="ws.tree.presentation.TreeActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated psm -->
+      <category
+            id="org.eclipse.psm.framework.editor.wizards.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ws.skeleton.presentation.SkeletonModelWizardID"
+            name="%_UI_SkeletonModelWizard_label"
+            class="ws.skeleton.presentation.SkeletonModelWizard"
+            category="org.eclipse.psm.framework.editor.wizards.category.ID"
+            icon="icons/full/obj16/SkeletonModelFile.gif">
+         <description>%_UI_SkeletonModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated psm -->
+      <editor
+            id="ws.skeleton.presentation.SkeletonEditorID"
+            name="%_UI_SkeletonEditor_label"
+            icon="icons/full/obj16/SkeletonModelFile.gif"
+            extensions="skeleton"
+            class="ws.skeleton.presentation.SkeletonEditor"
+            contributorClass="ws.skeleton.presentation.SkeletonActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated psm -->
+      <category
+            id="org.eclipse.psm.framework.editor.wizards.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ws.bundle.presentation.BundleModelWizardID"
+            name="%_UI_BundleModelWizard_label"
+            class="ws.bundle.presentation.BundleModelWizard"
+            category="org.eclipse.psm.framework.editor.wizards.category.ID"
+            icon="icons/full/obj16/BundleModelFile.gif">
+         <description>%_UI_BundleModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated psm -->
+      <editor
+            id="ws.bundle.presentation.BundleEditorID"
+            name="%_UI_BundleEditor_label"
+            icon="icons/full/obj16/BundleModelFile.gif"
+            extensions="bundle"
+            class="ws.bundle.presentation.BundleEditor"
+            contributorClass="ws.bundle.presentation.BundleActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

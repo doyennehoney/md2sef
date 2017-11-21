@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="Bundle" version="10.1.3.201511131800">
+  <ownedViewpoints name="bundle" modelFileExtension="bundle">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Bundle Diagram" domainClass="bundle.Bundle" enablePopupBars="true">
+      <metamodel href="http://psm.org/bundle#/"/>
+      <metamodel href="http://psm.org/skeleton#/"/>
+      <metamodel href="http://psm.org/Tree#/"/>
+      <layout xsi:type="description_1:CompositeLayout" padding="40"/>
+      <defaultLayer name="Default">
+        <edgeMappings name="rootcoord" sourceMapping="//@ownedViewpoints[name='bundle']/@ownedRepresentations[name='Bundle%20Diagram']/@defaultLayer/@containerMappings[name='bundle']/@subNodeMappings[name='root']" targetMapping="//@ownedViewpoints[name='bundle']/@ownedRepresentations[name='Bundle%20Diagram']/@defaultLayer/@containerMappings[name='bundle']/@subNodeMappings[name='coordinator']" targetFinderExpression="feature:child">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="rootSim" sourceMapping="//@ownedViewpoints[name='bundle']/@ownedRepresentations[name='Bundle%20Diagram']/@defaultLayer/@containerMappings[name='bundle']/@subNodeMappings[name='root']" targetMapping="//@ownedViewpoints[name='bundle']/@ownedRepresentations[name='Bundle%20Diagram']/@defaultLayer/@containerMappings[name='bundle']/@subNodeMappings[name='simulator']" targetFinderExpression="feature:child">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="coordCoord" sourceMapping="//@ownedViewpoints[name='bundle']/@ownedRepresentations[name='Bundle%20Diagram']/@defaultLayer/@containerMappings[name='bundle']/@subNodeMappings[name='coordinator']" targetMapping="//@ownedViewpoints[name='bundle']/@ownedRepresentations[name='Bundle%20Diagram']/@defaultLayer/@containerMappings[name='bundle']/@subNodeMappings[name='coordinator']" targetFinderExpression="feature:children">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="coordSim" sourceMapping="//@ownedViewpoints[name='bundle']/@ownedRepresentations[name='Bundle%20Diagram']/@defaultLayer/@containerMappings[name='bundle']/@subNodeMappings[name='coordinator']" targetMapping="//@ownedViewpoints[name='bundle']/@ownedRepresentations[name='Bundle%20Diagram']/@defaultLayer/@containerMappings[name='bundle']/@subNodeMappings[name='simulator']" targetFinderExpression="feature:children">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="bundle" semanticCandidatesExpression="feature:Process" domainClass="bundle.Process">
+          <subNodeMappings name="root" semanticCandidatesExpression="feature:nodes" domainClass="tree.Root">
+            <style xsi:type="style:BundledImageDescription" labelExpression="feature:ID" resizeKind="NSEW" shape="triangle">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="coordinator" semanticCandidatesExpression="feature:nodes" domainClass="tree.Coordinator">
+            <style xsi:type="style:BundledImageDescription" labelExpression="feature:ID" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="simulator" semanticCandidatesExpression="feature:nodes" domainClass="tree.Simulator">
+            <style xsi:type="style:BundledImageDescription" labelExpression="feature:ID" resizeKind="NSEW" shape="ring">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="50" arcHeight="50" borderSizeComputationExpression="1" labelExpression="feature:ID" roundedCorner="true" widthComputationExpression="9" heightComputationExpression="9">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

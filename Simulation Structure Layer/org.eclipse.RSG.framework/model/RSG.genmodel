@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.RSG.framework/src" modelPluginID="org.eclipse.RSG.framework"
+    modelName="RSG" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>RSG.ecore</foreignModel>
+  <genPackages prefix="RSG" disposableProviderFactory="true" ecorePackage="RSG.ecore#/">
+    <nestedGenPackages prefix="Tree" basePackage="rsgf" disposableProviderFactory="true"
+        ecorePackage="RSG.ecore#//tree">
+      <genClasses ecoreClass="RSG.ecore#//tree/Tree">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSG.ecore#//tree/Tree/ID"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSG.ecore#//tree/Tree/Root"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSG.ecore#//tree/Tree/Coordinator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSG.ecore#//tree/Tree/Simulator"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="RSG.ecore#//tree/Node">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSG.ecore#//tree/Node/ID"/>
+      </genClasses>
+      <genClasses ecoreClass="RSG.ecore#//tree/Root">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference RSG.ecore#//tree/Root/child"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="RSG.ecore#//tree/BasicNode">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSG.ecore#//tree/BasicNode/modelName"/>
+      </genClasses>
+      <genClasses ecoreClass="RSG.ecore#//tree/Coordinator">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference RSG.ecore#//tree/Coordinator/children"/>
+      </genClasses>
+      <genClasses ecoreClass="RSG.ecore#//tree/CDEVSCoordinator"/>
+      <genClasses ecoreClass="RSG.ecore#//tree/PDEVSCoordinator"/>
+      <genClasses ecoreClass="RSG.ecore#//tree/FlatCoordinator"/>
+      <genClasses ecoreClass="RSG.ecore#//tree/NodeCoordinator"/>
+      <genClasses ecoreClass="RSG.ecore#//tree/P_Coordinator"/>
+      <genClasses ecoreClass="RSG.ecore#//tree/Simulator"/>
+      <genClasses ecoreClass="RSG.ecore#//tree/CDEVSSimulator"/>
+      <genClasses ecoreClass="RSG.ecore#//tree/PDEVSSimulator"/>
+      <genClasses ecoreClass="RSG.ecore#//tree/P_Simulator"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Skeleton" basePackage="rsgf" disposableProviderFactory="true"
+        ecorePackage="RSG.ecore#//skeleton">
+      <genClasses ecoreClass="RSG.ecore#//skeleton/Skeleton">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSG.ecore#//skeleton/Skeleton/ID"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference RSG.ecore#//skeleton/Skeleton/tree"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSG.ecore#//skeleton/Skeleton/rootskel"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Bundle" basePackage="rsgf" disposableProviderFactory="true"
+        ecorePackage="RSG.ecore#//bundle">
+      <genClasses ecoreClass="RSG.ecore#//bundle/Bundle">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSG.ecore#//bundle/Bundle/ID"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference RSG.ecore#//bundle/Bundle/skeleton"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSG.ecore#//bundle/Bundle/Process"/>
+      </genClasses>
+      <genClasses ecoreClass="RSG.ecore#//bundle/Process">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSG.ecore#//bundle/Process/ID"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference RSG.ecore#//bundle/Process/nodes"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference RSG.ecore#//bundle/Process/middleware"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Vm" basePackage="rsgf" disposableProviderFactory="true"
+        ecorePackage="RSG.ecore#//vm">
+      <genClasses ecoreClass="RSG.ecore#//vm/VM">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSG.ecore#//vm/VM/ID"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSG.ecore#//vm/VM/protocol"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Mw" basePackage="rsgf" disposableProviderFactory="true"
+        ecorePackage="RSG.ecore#//mw">
+      <genClasses ecoreClass="RSG.ecore#//mw/Middleware">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference RSG.ecore#//mw/Middleware/process"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference RSG.ecore#//mw/Middleware/uses"/>
+        <genOperations ecoreOperation="RSG.ecore#//mw/Middleware/bind"/>
+        <genOperations ecoreOperation="RSG.ecore#//mw/Middleware/establish"/>
+        <genOperations ecoreOperation="RSG.ecore#//mw/Middleware/send"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

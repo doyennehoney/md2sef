@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated RSG -->
+      <package
+            uri="http://devs.org/RevisedTree"
+            class="rsgf.tree.TreePackage"
+            genModel="model/RSG.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated RSG -->
+      <package
+            uri="http://devs.org/RevisedSkeleton"
+            class="rsgf.skeleton.SkeletonPackage"
+            genModel="model/RSG.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated RSG -->
+      <package
+            uri="http://devs.org/RevisedBundle"
+            class="rsgf.bundle.BundlePackage"
+            genModel="model/RSG.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated RSG -->
+      <package
+            uri="http://devs.org/RevisedVM"
+            class="rsgf.vm.VmPackage"
+            genModel="model/RSG.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated RSG -->
+      <package
+            uri="http://devs.org/Middleware"
+            class="rsgf.mw.MwPackage"
+            genModel="model/RSG.genmodel"/>
+   </extension>
+
+</plugin>
